@@ -1,0 +1,197 @@
+@import '~antd/es/style/themes/default.less';
+
+:global {
+  .uploadBtn {
+    padding-top: 3px;
+  }
+}
+
+html {
+  // font-size: 62.5%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-menu-root {
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.ant-table-body {
+  overflow-x: auto;
+}
+
+.ant-table-header-column {
+  white-space: nowrap;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+[class^=GMLL-] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: box;
+  box-orient: vertical;
+  line-clamp: 3;
+  /* 打包时被过滤了 */
+  /* autoprefixer: off */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-line-clamp: 3;
+
+  display: -o-box;
+  -o-box-orient: vertical;
+  -o-line-clamp: 3;
+
+  display: -ms-box;
+  -ms-box-orient: vertical;
+  -ms-line-clamp: 3;
+  /* autoprefixer: on */
+}
+
+.GMLL-1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* 打包时被过滤了 */
+  /* autoprefixer: off */
+  -webkit-line-clamp: 1;
+  -moz-line-clamp: 1;
+  -o-line-clamp: 1;
+  -ms-line-clamp: 1;
+  /* autoprefixer: on */
+}
+
+.GMLL-2 {
+  /* 打包时被过滤了 */
+  /* autoprefixer: off */
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+  -o-line-clamp: 2;
+  -ms-line-clamp: 2;
+  /* autoprefixer: on */
+}
+
+.GMLL-3 {
+  /* 打包时被过滤了 */
+  /* autoprefixer: off */
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  -o-line-clamp: 3;
+  -ms-line-clamp: 3;
+  /* autoprefixer: on */
+}
+
+.GMLL-4 {
+  /* 打包时被过滤了 */
+  /* autoprefixer: off */
+  -webkit-line-clamp: 4;
+  -moz-line-clamp: 4;
+  -o-line-clamp: 4;
+  -ms-line-clamp: 4;
+  /* autoprefixer: on */
+}
+
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead>tr,
+    &-tbody>tr {
+
+      >th,
+      >td {
+        white-space: pre;
+
+        >span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.screen-gt-xxl(@rules) {
+  @media screen and (min-width: @screen-xxl-min) {
+    @rules();
+  }
+}
+
+.screen-lt-xxl(@rules) {
+  @media screen and (max-width: @screen-xl-max) {
+    @rules();
+  }
+}
+
+.screen-gt-xl(@rules) {
+  @media screen and (min-width: @screen-xl-min) {
+    @rules();
+  }
+}
+
+.screen-lt-xl(@rules) {
+  @media screen and (max-width: @screen-lg-max) {
+    @rules();
+  }
+}
+
+.screen-gt-lg(@rules) {
+  @media screen and (min-width: @screen-lg-min) {
+    @rules();
+  }
+}
+
+.screen-lt-lg(@rules) {
+  @media screen and (max-width: @screen-md-max) {
+    @rules();
+  }
+}
+
+.screen-gt-md(@rules) {
+  @media screen and (min-width: @screen-md-min) {
+    @rules();
+  }
+}
+
+.screen-lt-md(@rules) {
+  @media screen and (max-width: @screen-sm-max) {
+    @rules();
+  }
+}

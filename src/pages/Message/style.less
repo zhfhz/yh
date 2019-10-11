@@ -1,0 +1,48 @@
+@import '../DesignerCenter/share.less';
+
+.container {
+  background-color: #EFF1F5;
+
+  .main {
+    position: absolute;
+    left: 17%;
+    width: 66%; //1200px;
+    height: calc(100% - 88px);
+    margin: 18px auto 0 auto;
+    background-color: white;
+
+    .list {
+      margin-top: 18px;
+
+      .msg {
+        padding: 25px;
+        font-size: 14px;
+
+        .msg-info {
+          display: inline-block;
+          color: #3D3D3D;
+        }
+
+        .msg-date {
+          float: right;
+          margin-top: 15px;
+          color: gray;
+        }
+      }
+    }
+
+    .line {
+      width: 96%;
+      height: 1px;
+      margin: 0 2%;
+      background-color: #EBEBEB;
+    }
+
+    .page {
+      position: absolute;
+      top: calc(100% - 100px);
+      width: 100%;
+      padding-bottom: 0;
+    }
+  }
+}

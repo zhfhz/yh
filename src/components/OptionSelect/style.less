@@ -1,0 +1,19 @@
+.container{
+    height: 100%;
+    background-color: @OPTION_SELECT_BG_COLOR;
+    &::before,
+    &::after{
+        display: none;
+    }
+    .item{
+        margin: 0 20px;
+        padding: 0 15px;
+        color: #3D3D3D;
+        font-weight: 500;
+        font-size: 14px;
+        color: @OPTION_SELECT_TXT_COLOR;
+        &.checked{
+            color: @OPTION_SELECT_TXT_COLOR_FOCUS;
+        }
+    }
+}

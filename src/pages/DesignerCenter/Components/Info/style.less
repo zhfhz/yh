@@ -1,0 +1,117 @@
+@import '../../share.less';
+
+.info {
+  width: 900px;
+  // height: 264px;
+  padding: 20px 30px;
+  color: #333;
+  white-space: nowrap;
+
+  .left {
+    display: inline-block;
+    width: 340px;
+
+    .left-top {
+
+      .pic,
+      .pic2 {
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        vertical-align: top;
+        border: #D6E0FF solid 4px;
+        border-radius: 50%;
+      }
+
+      .pic2 {
+        border-radius: 8px;
+      }
+
+      .info-detail {
+        display: inline-block;
+        margin-left: 20px;
+
+        .info-name {
+          margin-top: 12px;
+          font-weight: bold;
+
+          .verified {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+          }
+        }
+
+        .info-sign {
+          margin-top: 9px;
+          color: #989A9C;
+        }
+
+        .info-follow,
+        .info-followed {
+          width: 90px;
+          height: 34px;
+          margin-top: 16px;
+          color: white;
+          background-color: @main-blue;
+          border: none;
+        }
+
+        .info-followed {
+          color: #989A9C;
+          background-color: #fff;
+          border: #EBEBEB solid 1px;
+        }
+      }
+    }
+
+    .left-bottom {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 150px;
+      margin-top: 23px;
+      margin-left: 30px;
+
+      .bottom-unit {
+        text-align: center;
+
+        >div {
+          width: 75px;
+        }
+
+        .value {
+          overflow: hidden;
+          color: @main-blue;
+          font-weight: bold;
+          font-size: @text16;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .line {
+        height: 26px;
+        // margin: 0 20px;
+        padding: 0 0.5px;
+        background-color: #E3E3E3;
+      }
+    }
+  }
+
+  .right {
+    float: right;
+
+    .show, .show-clickable {
+      width: 230px;
+      height: 190px;
+      margin-left: 20px;
+      border-radius: 5px;
+    }
+
+    .show-clickable {
+      cursor: pointer;
+    }
+  }
+}

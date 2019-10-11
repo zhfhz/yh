@@ -1,0 +1,131 @@
+@import '~antd/es/style/themes/default.less';
+
+.single-image-container {
+  position: relative;
+  border: @border-width-base solid @border-color-base;
+  border-radius: @border-radius-base;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  :global {
+    .viewer {
+      position: relative;
+    }
+
+    .layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.2s;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .anticon {
+      color: fade(@text-color-inverse, 75%);
+      cursor: pointer;
+      font-size: 1.4em;
+      margin: 4px;
+      transition: color 0.2s;
+
+      &:hover {
+        color: @text-color-inverse;
+      }
+    }
+  }
+}
+
+.single-image-picker {
+  position: relative;
+  border: @border-width-base dashed @border-color-base;
+  border-radius: @border-radius-base;
+  transition: border-color 0.2s;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    border-color: @primary-color;
+  }
+
+  :global {
+    .file-label {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      color: #666;
+
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+      text-align: center;
+      padding-top: 30px;
+
+      .file-des {
+        position: relative;
+        top: -20px;
+
+        div {
+          height: 20px;
+        }
+      }
+    }
+
+    .add-icon {
+      font-size: 2em;
+      margin-bottom: 4px;
+      color: #999;
+    }
+  }
+}
+
+.single-image-normal {
+  position: relative;
+  border: @border-width-base solid @border-color-base;
+  border-radius: @border-radius-base;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.single-image-failed {
+  position: relative;
+  border: @border-width-base solid @border-color-base;
+  border-radius: @border-radius-base;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.crop-modal {
+  :global {
+    .ant-modal-body {
+      text-align: center;
+    }
+
+    .ant-spin {
+      margin: 20px 0;
+    }
+  }
+}

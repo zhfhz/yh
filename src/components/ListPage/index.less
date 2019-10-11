@@ -1,0 +1,28 @@
+@import '../../global.less';
+
+:global {
+  .list-page-component-container {
+    @gap: 12px;
+
+    .addon-section {
+      margin: @gap 0;
+      .screen-lt-md({
+        margin: 0 0 @gap;
+      });
+    }
+
+    .search-section {
+      padding-bottom: @gap;
+    }
+
+    .search-btn {
+      .screen-lt-md({
+        margin: @gap 0;
+      });
+    }
+
+    .search-line {
+      margin-bottom: @gap;
+    }
+  }
+}

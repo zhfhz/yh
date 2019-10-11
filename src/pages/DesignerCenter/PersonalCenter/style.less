@@ -1,0 +1,90 @@
+@import '../share.less';
+@bg-color: #EFF1F5;
+@text-color: #A4A6AC;
+@line-color: #F1F2F5;
+@main-blue: #5B81F4;
+@top-height: 128px;
+@left-offset: 80px; // 80 5rem
+@left-pic-offset: 50px;
+@page-height: 1000px;
+@main-margin: 20px;
+
+@text-big: 15px;
+
+.container {
+  background-color: @bg-color;
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 18px;
+
+    .left {
+      display: table-cell;
+      width: 170px;
+
+      .tabs {
+        height: 100%;
+        color: #AFB4C6;
+        font-size: @text16;
+        background-color: #F7F9FE;
+
+        .tab,
+        .tab-selected {
+          height: 110px;
+          background-color: #F7F9FE;
+          cursor: pointer;
+        }
+
+        .tab-selected {
+          background-color: white;
+        }
+
+        .tab-text,
+        .tab-selected-text {
+          display: inline-block;
+          margin-left: 20px;
+          line-height: 110px;
+
+          img {
+            width: 28px;
+            height: 32px;
+            margin-right: 12px;
+          }
+        }
+
+        .tab-selected-text {
+          margin-left: 16px;
+          color: @main-blue;
+          font-weight: bold;
+        }
+
+        .tab-selected-mark {
+          float: left;
+          width: 4px;
+          height: 110px;
+          background-color: @main-blue;
+        }
+
+        .tab-line {
+          width: 1px;
+          height: 1em;
+          margin: 0 10px 0 5px;
+          vertical-align: middle;
+          background-color: white;
+        }
+      }
+    }
+
+    .right {
+      display: inline-block;
+      width: 1010px;
+      height: 100%;
+      margin-left: 20px;
+      vertical-align: top;
+      background-color: white;
+    }
+  }
+}

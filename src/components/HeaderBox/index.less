@@ -1,0 +1,208 @@
+.box {
+  box-shadow: 0px 2px 8px 0px rgba(154, 154, 154, 0.5);
+  background: rgba(255, 255, 255, 1);
+
+  .boxMain {
+    width: 1200px;
+    height: 70px;
+    line-height: 70px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #6E6E6E;
+
+    .left {
+      float: left;
+
+      .headerimg {
+        float: left;
+
+        img {
+          width: 121px;
+          height: 45px;
+          cursor: pointer;
+        }
+      }
+
+      .menus {
+        float: left;
+        margin-left: 60px;
+
+        .munuItem {
+          padding: 0 30px 0 30px;
+          height: 70px;
+          display: block;
+          float: left;
+          text-align: center;
+          cursor: pointer;
+          margin-left: 10px;
+
+          &:hover {
+            color: #597EF7;
+            border-bottom: 2px solid #597EF7;
+          }
+        }
+
+        .munuItemActive {
+          padding: 0 30px 0 30px;
+          height: 70px;
+          display: block;
+          float: left;
+          text-align: center;
+          cursor: pointer;
+          margin-left: 10px;
+          color: #597EF7;
+          border-bottom: 2px solid #597EF7;
+        }
+      }
+
+      .centerName {
+        height: 16px;
+        line-height: 16px;
+        float: left;
+        color: #6E6E6E;
+        font-size: 16px;
+        border-left: 1px solid #C9D9FF;
+        margin: 30px 0 0 50px;
+        padding-left: 14px;
+      }
+    }
+
+    .right {
+      width: 400px;
+      height: 100%;
+      float: right;
+
+      .account {
+        color: #9A9A9A;
+        font-size: 14px;
+        position: relative;
+
+        .navRegist {
+          color: #858585;
+          width: 44px;
+          height: 18px;
+          line-height: 18px;
+          float: left;
+          border-right: 1px solid #D9D9D9;
+          margin: 30px 0 0 10px;
+          cursor: pointer;
+
+          img {
+            float: left;
+            width: 22px;
+            height: 22px;
+            margin-right: 4px;
+          }
+
+          &:nth-last-child(1) {
+            width: 64px;
+            border-right: 0px solid #fff;
+          }
+        }
+
+        .inputSearch {
+          float: right;
+          width: 260px;
+        }
+
+        .navRegisterBox {
+          float: right;
+          position: relative;
+          top: -4px;
+        }
+
+        .navLogin {
+          float: right;
+        }
+
+      }
+    }
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  .message {
+    width: 30px;
+    height: 30px;
+
+  }
+
+  .messageBox {
+    float: right;
+    margin-left: 4px;
+    cursor: pointer;
+  }
+
+  .headerImg,
+  .headerBigImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-position: center center;
+    background-size: cover;
+    float: right;
+    background-color: #ADC6FF;
+    margin-left: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+
+  }
+
+  .panel {
+    width: 326px;
+    height: 158px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 4px 0px rgba(66, 117, 234, 0.3);
+    border-radius: 4px;
+    border: 1px solid rgba(230, 230, 230, 1);
+    position: absolute;
+    right: 0px;
+    top: 70px;
+    z-index: 1;
+    padding: 0 15px 0 15px;
+
+    .header {
+      height: 100px;
+      border-bottom: 1px solid #E6E6E6;
+
+      .headerBigImg {
+        width: 54px;
+        height: 54px;
+        float: left;
+      }
+
+      .headerName {
+        float: left;
+        font-size: 16px;
+        color: rgba(61, 61, 61, 1);
+        margin-left: 10px;
+        height: 100px;
+        line-height: 100px;
+        font-weight: bold;
+      }
+
+    }
+
+    .bottom {
+      .bottomItem {
+        width: 50%;
+        float: left;
+        text-align: center;
+        height: 14px;
+        line-height: 14px;
+        margin-top: 20px;
+        cursor: pointer;
+
+        &:nth-last-child(2) {
+          border-right: 1px solid #E6E6E6;
+          color: #597EF7;
+        }
+      }
+
+
+    }
+
+  }
+}

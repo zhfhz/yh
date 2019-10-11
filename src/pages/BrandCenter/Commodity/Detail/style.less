@@ -1,0 +1,114 @@
+.container {
+  // padding: 28px;
+  .title {
+    font-size: 18px;
+    color: #333333;
+    margin: 0 0 15px 22px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625em 1em;
+
+    .title {
+      font-size: 1.275em;
+    }
+  }
+
+  .goodsNormal {
+    padding: 10px 20px;
+
+    .ladder-price {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .ladder-price-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .specification {
+    padding: 10px 20px;
+
+    span {
+      white-space: normal;
+      width: 200px;
+    }
+
+    .specification-label-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .label {
+        white-space: normal;
+        width: 200px;
+        text-align: right;
+      }
+    }
+
+    .labelStyle {
+      white-space: normal;
+    }
+
+    .specification-detail {
+      margin-left: 20px;
+      padding: 10px 20px;
+    }
+
+    .specification-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      .picture-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 15px;
+
+        .picture {
+          width: 50px;
+          height: 50px;
+          background-color: red;
+          margin-bottom: 10px;
+        }
+
+        .title {
+          font-size: 1em;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .back-btn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+
+    button {
+      width: 104px;
+    }
+  }
+
+  .dangerouslySetInnerHTML-params {
+    margin: 15px;
+    padding: 15px;
+    width: 100%;
+    max-height: 500px;
+    overflow: auto;
+  }
+}

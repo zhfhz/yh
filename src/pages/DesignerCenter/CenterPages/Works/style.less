@@ -1,0 +1,24 @@
+@import '../../share.less';
+@column-count: 3;
+
+@pic-width: 174px;
+@pic-size: 100% / @column-count;
+@works-gap: 20px; // column gap
+@works-row-gap: 20px;
+@list-width: 100% - @works-gap * (@column-count + 1);
+@list-padding: 20px; // @works-gap * (@column-count + 1) / 2;
+
+.container {
+  background-color: white;
+
+  .worksList {
+    display: grid;
+    grid-template-columns: @pic-size @pic-size @pic-size;
+    justify-content: center;
+    // width: @list-width;
+    margin: 0 25px;
+    padding: @list-padding;
+    column-gap: @works-gap;
+    row-gap: @works-row-gap;
+  }
+}

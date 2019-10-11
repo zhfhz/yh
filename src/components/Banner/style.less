@@ -1,0 +1,31 @@
+.banner{
+    :global{
+        .slick-slide{
+            height: 210px;
+            &>div{
+                height: 100%;
+            }
+        }
+        .slick-dots{
+            li {
+                button{
+                    width: 5px;
+                    height: 5px;
+                }
+                &.slick-active{
+                    button {
+                        width: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .item {
+        height: 100%;
+        text-align: center;
+        background-color: cornflowerblue;
+        img{
+            height: 100%;
+        }
+    }
+}

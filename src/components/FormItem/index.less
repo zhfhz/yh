@@ -1,0 +1,35 @@
+@import '../../global.less';
+
+:global {
+  .form-item-component-container {
+    .title {
+      text-align: left;
+      user-select: none;
+      white-space: nowrap;
+
+      .screen-gt-md({
+        text-align: right;
+
+        &::after {
+          content: '：';
+        }
+      });
+    }
+
+    .ant-select, .ant-input, .ant-calendar-picker {
+      width: 100%;
+    }
+
+    .screen-gt-md({
+      .unfix-label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .ant-input {
+          flex: 1;
+        }
+      }
+    })
+  }
+}

@@ -1,0 +1,18 @@
+.container{
+    background-color: @CATELOG_SELECT_BG_COLOR;
+    height: 80px;
+    .item{
+        margin: 0 20px;
+        padding: 0 15px;
+        border-radius: 15px;
+        font-size: 15px;
+        color: #3D3D3D;
+        height: 43px;
+        line-height: 43px;
+        border-radius: 43px;
+        &.checked{
+            color: @CATELOG_SELECT_TXT_COLOR_FOCUS;
+            background-color: @CATELOG_SELECT_TXT_BG_COLOR_FOCUS;
+        }
+    }
+}
