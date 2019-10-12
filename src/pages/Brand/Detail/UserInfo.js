@@ -12,7 +12,7 @@ const Tags = ({ className = '', data = [], theme = 'gray', ...rest }) => (
     </ul>
 );
 
-const CompanyExhibitItem = ({
+const UserInfo = ({
     enterpriseId,
     enterpriseName,
     companyProfile,
@@ -20,7 +20,7 @@ const CompanyExhibitItem = ({
     labelList = [],
     industryName,
 }) => (
-    <li className={styles.item} onClick={() => router.push(`/brand/${enterpriseId}`)}>
+    <li className={styles.info}>
         <FlexRow>
             <Avatar
                 style={{ flex: 'none' }}
@@ -43,10 +43,4 @@ const CompanyExhibitItem = ({
 );
 
 export default ({ data = [], ...rest }) =>
-(<div className={styles.container}>
-    <ul>
-        {
-            data.map(item => <CompanyExhibitItem {...item} {...rest} />)
-        }
-    </ul>
-</div>);
+(<UserInfo {...data} {...rest} />);

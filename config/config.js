@@ -338,6 +338,12 @@ export default {
           component: './Brand',
         },
         {
+          name: 'brandshow',
+          path: '/brand/:id',
+          exact: true,
+          component: './Brand/Detail',
+        },
+        {
           name: 'search',
           path: '/search',
           component: './Search',
