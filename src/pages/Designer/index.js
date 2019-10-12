@@ -3,23 +3,23 @@ import { connect } from 'dva';
 import DesignerExhibit from '@/components/DesignerExhibit';
 import BaseCatelogPage from '@/pages/BaseCatelogPage';
 
-@connect(({ designer, loading }) => ({ ...designer, followLoading: loading.effects['designer/follow'] }))
+@connect(({ designer, loading }) => ({ ...designer, followLoading: loading.effects['user/follow'] }))
 class Page extends BaseCatelogPage {
   namespace = 'designer';
 
-  renderDataList = dataList => {
+  toggleFollow = (id, isFollow) => {
     const { dispatch, followLoading } = this.props;
-    return <DesignerExhibit data={dataList} onFollowBtnClick={(id, isFollow) => {
-      if (followLoading) {
-        return dispatch();
-      }
-      return dispatch({
-        type: 'user/follow',
-        userId: id,
-        isFollow,
-      })
-    }} />;
-  };
+    if (followLoading) {
+      return dispatch();
+    }
+    return dispatch({
+      type: 'user/follow',
+      userId: id,
+      isFollow,
+    })
+  }
+
+  renderDataList = dataList => <DesignerExhibit data={dataList} onFollowBtnClick={this.toggleFollow} />;
 }
 
 export default Page;

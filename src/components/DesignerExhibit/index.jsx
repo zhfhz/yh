@@ -34,11 +34,9 @@ const DesignerItem = ({
     fansNo,
     // auditStatus
 }) => {
-    const [followFlag, setFlag] = useState(Number(isFollow))
+    const [hasFollowed, setHasFollowed] = useState(Number(isFollow) === HAS_FOLLOWED)
     return (
-    <li className={styles.item} onClick={() => router.push('/center/designercenter/home', { query: {
-        id: userId,
-    } })}>
+    <li className={styles.item} onClick={() => router.push({ pathname: '/center/designercenter/home', query: { id: userId } })}>
         <header>
             <FlexClomn>
                 <Avatar style={{ flex: 'none' }} size={90} src={headImage || 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'} />
@@ -61,18 +59,15 @@ const DesignerItem = ({
                     className={styles.followBtn}
                     onClick={evt => {
                         evt.stopPropagation();
-                        onFollowBtnClick(userId, followFlag !== HAS_FOLLOWED).then(result => {
-                            if (result.ok && result.isFollow) {
-                                setFlag(HAS_FOLLOWED);
-                            }
-                            if (result.ok && !result.isFollow) {
-                                setFlag(HAS_NOT_FOLLOWED);
+                        onFollowBtnClick(userId, !hasFollowed).then(result => {
+                            if (result.ok) {
+                                setHasFollowed(result.isFollow);
                             }
                         });
                     }}
                     type="button"
                 >
-                        {followFlag === HAS_NOT_FOLLOWED ? '关注' : '已关注'}
+                        {hasFollowed ? '已关注' : '关注'}
                 </button>
             </FlexClomn>
         </footer>

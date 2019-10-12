@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'antd';
 import { connect } from 'dva';
 import DesignList from './DesignList';
+import ArticleInfo from './ArticleInfo';
 import styles from './style.less';
 
 
@@ -13,6 +14,7 @@ const NOT_COLLECT = 0;
   contentLoading: loading.effects['productionDetail/fetch'],
   collectLoading: loading.effects['productionDetail/toggleCollect'],
   likeLoading: loading.effects['productionDetail/likeThis'],
+  followLoading: loading.effects['user/follow'],
 }))
 class Page extends Component {
   state = {
@@ -52,12 +54,24 @@ class Page extends Component {
     });
   }
 
+  toggleFollow = (id, isFollow) => {
+    const { dispatch, followLoading } = this.props;
+    if (followLoading) {
+      return dispatch();
+    }
+    return dispatch({
+      type: 'user/follow',
+      userId: id,
+      isFollow,
+    })
+  }
+
   toggleCollect = isCollect => {
     const { dispatch, computedMatch, collectLoading } = this.props;
     if (collectLoading) {
-      return;
+      return dispatch();
     }
-    dispatch({
+    return dispatch({
       type: 'productionDetail/toggleCollect',
       payload: {
         id: computedMatch.params.id,
@@ -69,6 +83,7 @@ class Page extends Component {
           isCollection: isCollect,
         })
       }
+      return res;
     });
   }
 
@@ -90,22 +105,18 @@ class Page extends Component {
     const { isCollection } = this.state;
     const {
       worksName,
-      coverImage = data.cover_image,
       categoryName,
-      // releaseTime,
-      headImage,
       updateTime,
       content,
       pv,
       fabulousNo,
-      isFollow,
     } = data;
     return (
       <div className={styles.container}>
         <div className={styles.content}>
           <aside>
             <header>
-              作者信息
+              <ArticleInfo {...data} onFollowBtnClick={this.toggleFollow} />
             </header>
             <div className={styles.asideTitle}>
               Ta的作品集
@@ -126,7 +137,7 @@ class Page extends Component {
                 最后编辑于：  <span>{updateTime}</span>
               </div>
             </header>
-            <article dangerouslySetInnerHTML={{ __html: data.content }} />
+            <article dangerouslySetInnerHTML={{ __html: content }} />
             <footer>
               <button
                 className={`${isCollection ? styles.checked : ''}`}
