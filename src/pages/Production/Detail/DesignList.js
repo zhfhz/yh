@@ -1,7 +1,7 @@
 import React from 'react';
 import router from 'umi/router';
 import DesignList from '@/components/DesignExhibit';
-import { FlexClomn, FlexDivider } from '@/components/Flex';
+import { FlexClomn } from '@/components/Flex';
 import { timeParse } from '@/utils/utils';
 import styles from './style.less';
 

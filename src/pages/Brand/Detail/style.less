@@ -5,13 +5,116 @@
     width: 1200px;
     margin: 0 auto;
     margin-top: 17px;
-    min-height: 152px;
+    box-sizing: border-box;
     background-color: white;
-    &>:first-child{
-      margin-top: 0;
+    padding: 25px 30px;
+  }
+  .tabsContainer{
+    border-bottom: 1px solid #F5F5F5;
+    padding: 0;
+  }
+  .tabs {
+    height: 80px;
+  }
+  .tabContent{
+    margin-top: 0;
+    .imgItem{
+
+    }
+  }
+  .tabItem{
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    overflow: visible;
+    &::before{
+      content: "";
+      position: absolute;
+      height: 3px;
+      left: 0;
+      width: 100%;
+      bottom: -28.8px;
+      border-radius: 2px;
+      background-color: transparent;
+    }
+    &.checked{
+      &::before{
+        background-color: @OPTION_SELECT_TXT_COLOR_FOCUS;
+      }
+      
     }
   }
   .info{
+    height: 100%;
     
+    .detail{
+      margin-left: 44px;
+      margin-right: 44px;
+      .name{
+        font-size: 18px;
+        color: #333333;
+        height: 25px;
+        line-height: 25px;
+        white-space: nowrap;
+        
+      }
+      .addr{
+        font-size: 12px;
+        color: #989A9C;
+        line-height: 17px;
+        height: 17px;
+      }
+      .note{
+        width:372px;
+        padding-top: 10px;
+        box-sizing: content-box;
+        height:34px;
+        font-size:12px;
+        font-family:PingFangSC-Regular,PingFangSC;
+        font-weight:400;
+        color:rgba(152,154,156,1);
+        line-height:17px;
+      }
+      .tags{
+        font-size: 12px;
+        height: 23px;
+        padding-top: 5px;
+        li.tag{
+            display: inline-block;
+            margin-right: 8px;
+            &:last-child{
+                margin-right: 0;
+            }
+            &.gray{
+                color: #696969;
+                background-color: #F5F5F5;
+                border-radius: 2px;
+                height: 20px;
+                line-height: 20px;
+                padding: 0 6px;
+            }
+            &.blue{
+                color: #597EF7;
+                background-color: #F1F5FF;
+                height: 23px;
+                padding: 0 12px;
+                line-height: 23px;
+                border-radius:0px 8px 8px 8px;
+            }
+        }
+      }
+    }
+    .followBtn{
+      flex: none;
+      width:82px;
+      height:34px;
+      background: @FOLLOW_BTN_BG_COLOR;
+      border-radius:4px;
+      border: 0 none;
+      color: @FOLLOW_BTN_TXT_COLOR;
+      &:active {
+        background-color: @FOLLOW_BTN_ACTIVE_BG_COLOR;
+      }
+    }
   }
 }

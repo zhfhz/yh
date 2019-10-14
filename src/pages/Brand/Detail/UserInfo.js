@@ -7,7 +7,7 @@ import styles from './style.less';
 const Tags = ({ className = '', data = [], theme = 'gray', ...rest }) => (
     <ul {...rest} className={`${styles.tags} ${className}`}>
         {
-            data.filter(tag => !!tag).map(tag => <li className={`${styles.tag} ${styles[theme]}`}>{tag}</li>)
+            data.filter(tag => !!tag).map(tag => <li key={tag} className={`${styles.tag} ${styles[theme]}`}>{tag}</li>)
         }
     </ul>
 );
@@ -20,26 +20,30 @@ const UserInfo = ({
     labelList = [],
     industryName,
 }) => (
-    <li className={styles.info}>
+    <div className={styles.info}>
         <FlexRow>
             <Avatar
                 style={{ flex: 'none' }}
-                size={145}
+                size={100}
                 shape="square"
                 src={companyLogo || 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'} />
-            <FlexDivider type="vertical" style={{ height: '100%', margin: 0 }} />
             <section className={styles.detail}>
-                <div className={styles.name}>
+                <div className={`${styles.name} GMLL-1`}>
                     {enterpriseName}
                 </div>
-                <Tags className="GMLL-1" data={labelList.map(item => item.tagName)} theme="blue" style={{ fontSize: 12 }} />
-                <article className="GMLL-3">
+                <div className={styles.addr}>
+                    已入住淮安市都市智造谷
+                </div>
+                <article className={`${styles.note} GMLL-2`}>
                     {companyProfile}
                 </article>
-                <Tags data={[industryName]} theme="gray" style={{ fontSize: 10 }} />
+                <Tags className={styles.tags} data={['千年老店']} theme="blue" style={{ fontSize: 12 }} />
             </section>
+            <button className={styles.followBtn} type="button">
+                关注
+            </button>
         </FlexRow>
-    </li>
+    </div>
 );
 
 export default ({ data = [], ...rest }) =>
