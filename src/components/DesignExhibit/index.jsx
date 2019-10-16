@@ -2,13 +2,14 @@ import React from 'react';
 import { Icon } from 'antd';
 import router from 'umi/router';
 import { FlexClomn, FlexDivider } from '@/components/Flex';
+import CoverImage from '@/components/CoverImage';
 import styles from './style.less';
 
-/**
- * 作品封面
- * @param {*} props
- */
-const CoverImg = props => <img className={styles.coverImg} src={props.src} alt="" />;
+// /**
+//  * 作品封面
+//  * @param {*} props
+//  */
+// const CoverImg = props => <img className={styles.coverImg} src={props.src} alt="" />;
 /**
  * 作品标题
  */
@@ -93,7 +94,7 @@ const ReviewFailMessage = props => <div className={styles.reviewFailMessage}>{pr
  */
 const Menus = props => <div className={styles.menus}></div>;
 export const DesignListItem = ({ children, className = '', ...rest }) => {
-    const coverImg = children.find(child => child.type === CoverImg);
+    const coverImg = children.find(child => child.type === CoverImage);
     const reviewFailMessage = children.find(child => child.type === ReviewFailMessage);
     const content = children.find(child => child.type === Content);
     const contentChild = children.filter(child =>
@@ -111,7 +112,7 @@ export const DesignListItem = ({ children, className = '', ...rest }) => {
     )
 };
 Object.assign(DesignListItem, {
-    CoverImg,
+    CoverImg: CoverImage,
     Title,
     Author,
     Tags,
@@ -130,7 +131,7 @@ export default function DesignList ({ children, data = [], isMyHome = false }) {
             <ul className={styles[`remain-${data.length % 5}`]}>
                 {children || data.map(item => (
                     <DesignListItem key={item.worksId} onClick={() => router.push(`/production/detail/${item.worksId}`)}>
-                        <CoverImg src={item.coverImage} />
+                        <CoverImage className={styles.coverImg} src={item.coverImage} display="fit" />
                         {isMyHome && item.auditStatus === 2 &&
                         <ReviewFailMessage>{item.rejectReason}</ReviewFailMessage>}
                         <Content>

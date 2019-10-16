@@ -5,6 +5,7 @@ export default {
   state: {
     userInfo: {},
     content: '',
+    imgSet: [],
     options: [
       {
         text: '企业简介',
@@ -38,11 +39,15 @@ export default {
     },
     *getCompanyInfo({ payload }, { call, put }) {
       const { data } = yield call(service[`getCompanyInfo${payload.optionValue}`], payload.id);
+      const saveData = {};
+      if (payload.optionValue === '3') {
+        saveData.imgSet = data;
+      } else {
+        saveData.content = data;
+      }
       yield put({
         type: 'save',
-        payload: {
-          content: data,
-        },
+        payload: saveData,
       });
     },
   },

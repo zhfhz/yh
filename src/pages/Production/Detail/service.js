@@ -32,7 +32,7 @@ export function getOtherDesignsOfTheUser(id) {
   return request('/dms/works/heWorks/1.2', {
     method: 'GET',
     params: {
-      userId: id,
+      worksId: id,
     },
   });
 }

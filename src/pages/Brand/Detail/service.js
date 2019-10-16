@@ -9,7 +9,7 @@ export function getCompanyInfo(id) {
  * @param {*} id
  */
 export function getCompanyInfo0(id) {
-  return request('/mms/enterprise/displayShow/1.2', { method: 'GET', params: { enterpriseId: id, reqType: 1 } });
+  return request('/mms/enterprise/displayShow/1.2', { method: 'POST', params: { enterpriseId: id, reqType: 1 } });
 }
 
 
@@ -18,7 +18,7 @@ export function getCompanyInfo0(id) {
  * @param {*} id
  */
 export function getCompanyInfo1(id) {
-  return request('/mms/enterprise/displayShow/1.2', { method: 'GET', params: { enterpriseId: id, reqType: 2 } });
+  return request('/mms/enterprise/displayShow/1.2', { method: 'POST', params: { enterpriseId: id, reqType: 2 } });
 }
 
 
@@ -27,7 +27,7 @@ export function getCompanyInfo1(id) {
  * @param {*} id
  */
 export function getCompanyInfo2(id) {
-  return request('/mms/enterprise/displayShow/1.2', { method: 'GET', params: { enterpriseId: id, reqType: 3 } });
+  return request('/mms/enterprise/displayShow/1.2', { method: 'POST', params: { enterpriseId: id, reqType: 3 } });
 }
 
 /**
@@ -37,3 +37,7 @@ export function getCompanyInfo2(id) {
 export function getCompanyInfo3(id) {
   return request('/mms/enterprise/elegantList/1.2', { method: 'GET', params: { enterpriseId: id } });
 }
+
+export const COMPANY_SERVICES = 3;
+export const COMPANY_CERT = 2;
+export const COMPANY_INTRO = 1;

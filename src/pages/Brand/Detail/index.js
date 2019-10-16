@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Avatar } from 'antd';
 import { connect } from 'dva';
 import UserInfo from './UserInfo';
 import OptionSelect from '@/components/OptionSelect';
 import CardList from '@/components/CardList';
+import CoverImage from '@/components/CoverImage';
 import styles from './style.less';
 
 const { Card } = CardList;
@@ -46,7 +46,7 @@ class Page extends Component {
   }
 
   render() {
-    const { userInfo, options, content } = this.props;
+    const { userInfo, options, content, imgSet } = this.props;
     return (
       <div className={styles.container}>
         <section>
@@ -71,15 +71,7 @@ class Page extends Component {
           }
           {
             this.optionValue === '3' && (
-              <CardList>
-                {
-                  (content || []).map(item => (
-                    <Card key={item.id} className={styles.imgItem}>
-                      <img alt="" src={item.elegantUrl} />
-                    </Card>
-                  ))
-                }
-              </CardList>
+              <CardList data={imgSet} renderItem={item => <CoverImage className={styles.imgItem} src={item.elegantUrl} display="fit" />} />
             )
           }
         </section>

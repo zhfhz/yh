@@ -51,8 +51,8 @@ export default {
       }
     },
     *getDesignsList({ payload }, { call, put }) {
-      const { id } = payload;
-      const { ok, data } = yield call(getOtherDesignsOfTheUser, id);
+      const { id, worksId } = payload;
+      const { ok, data } = yield call(getOtherDesignsOfTheUser, id, worksId);
       if (ok) {
         yield put({
           type: 'save',

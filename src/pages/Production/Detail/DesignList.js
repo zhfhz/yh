@@ -23,7 +23,7 @@ export default ({ data = [] }) => (
         {
             data.map(item => (
                 <DesignItem className={styles.productionItem} key={item.worksId} onClick={() => router.push(`/production/detail/${item.worksId}`)}>
-                <CoverImg src={item.coverImage} />
+                <CoverImg className={styles.coverImg} display="fit" src={item.coverImage} />
                 <Content>
                     <Title>{item.worksName}</Title>
                     <Tags className={styles.productionItemTags} data={[item.categoryName]} />
