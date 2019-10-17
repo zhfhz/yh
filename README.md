@@ -90,3 +90,51 @@
     <Select><Option>Option</Option></Select>   <!-- 也可以自定义输入框的形式 -->
   </FormItem>
   ```
+
+- CoverImage  封面图片
+
+  ```jsx
+  <CoverImage
+    src="${url}"                    // 图片的URL路径
+    display="fit | contain | cover" // 展示方式： fit - 等比缩放后，最短边铺满，居中展示，超出隐藏；contain - 等比缩放后，最长边铺满，居中展示； cover - 拉伸铺满
+    className=""                    // 样式添加到组件容器上
+    style={{}}                      // 样式添加到组件容器上
+  />
+
+  注意：
+  1.className或style中指定容器宽高。否则无法计算缩放规则。
+  2.组件内部包含DOM计算，大量列表渲染时，请做好分批加载。
+  ```
+
+- global.less .GMLL 多行/单行超出省略号
+  示例：
+  ```jsx
+  <CoverImage
+    className={`${styles.cover} GMLL-N`}                    // 样式添加到组件容器上
+  />
+
+  注意：
+    元素需要自己定义好高度和文字行高。GMLL-1: 单行超出省略；GMLL-2：2行超出省略，目前只到GMLL-4，其他自行添加
+  ```
+
+- CheckAbleList 组件说明
+  属性：
+  const { data = [], scrollAble = true, useDiliver = false, style = {}, className = '', itemClassName = '', itemStyle = {}, checkedClassName = '' } = props;
+
+  ```jsx
+  
+  <CheckAbleList
+    className                       // 添加到容器元素
+    data={[{text: '',checked: true  ,value: ''}]}  // 渲染的列表数据，受控：列表改变后需要回传更新后数据
+    scrollAble                      // 是否支持横向滚动，默认支持
+    useDiliver                      // 各选项是否使用分割线隔开默认不使用
+    itemClassName                   // 各选项自定义样式
+    itemStyle                       // 各选项自定义样式
+    checkedClassName                // 各选项被选中样式
+    multiple                        // 是否多选，默认false
+    onChange                        // 选项改变时回调，入参（value|values，newData）;newData,可以直接更新到model的state中去。
+  />
+
+  注意：
+    组件OptionSelect和CatelogSelect  都是基于此组件的样式封装。
+  ```
