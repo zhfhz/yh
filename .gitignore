@@ -43,3 +43,5 @@ build
 
 # local
 .*.local
+.env
+src/utils/request.js

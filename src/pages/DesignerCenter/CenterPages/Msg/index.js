@@ -3,6 +3,8 @@ import { Button, Pagination } from 'antd';
 import { connect } from 'dva';
 
 import styles from './style.less';
+import Empty from '../../Components/Empty';
+import PageLoading from '@/components/PageLoading';
 
 @connect(({ designerCenterMsg }) => designerCenterMsg)
 class Page extends Component {
@@ -36,13 +38,19 @@ class Page extends Component {
   )
 
   render() {
-    const { dataList, resultCount } = this.props;
+    const { dataList, resultCount, loading } = this.props;
+
+    if ((!dataList || dataList.length === 0) && !loading) {
+      return <Empty />
+    }
+
     return (
       <div className={styles.container}>
         <div className={styles.list}>
           {
-            dataList &&
-            dataList.map(v => this.renderMsg(v.content, v.sendDate))
+            loading ? <PageLoading /> :
+              dataList &&
+              dataList.map(v => this.renderMsg(v.content, v.sendDate))
           }
         </div>
         <div className={styles.page}>

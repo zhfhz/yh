@@ -50,6 +50,7 @@ class Ueditor extends React.Component {
   };
 
   render() {
+    const { onCustomReady } = this.props;
     return (
       <ReactUeditor
         plugins={[
@@ -62,7 +63,7 @@ class Ueditor extends React.Component {
         getRef={this.attachEditor}
         uploadImage={this.uploadImage}
         onChange={this.updateEditorContent}
-        onReady={this.onReady}
+        onReady={onCustomReady || this.onReady}
         ueditorPath={`${window.location.origin}/ueditor`}
       />
     );

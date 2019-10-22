@@ -20,7 +20,19 @@ export default {
       });
     },
     *fetchPersonalList({ userId, pageIndex, pageSize }, { call, put }) {
+      yield put({
+        type: 'save',
+        payload: {
+          loading: true,
+        },
+      });
       const { ok, data } = yield call(getPersonalList, userId, pageIndex, pageSize);
+      yield put({
+        type: 'save',
+        payload: {
+          loading: false,
+        },
+      });
       if (!ok) {
         message.error('获取个人列表失败');
         return;
@@ -30,12 +42,23 @@ export default {
         payload: {
           listData: data.list,
           resultCount: parseInt(data.resultCount, 10) || 0,
-          loading: false,
         },
       });
     },
     *fetchEnterpriseList({ userId, pageIndex, pageSize }, { call, put }) {
+      yield put({
+        type: 'save',
+        payload: {
+          loading: true,
+        },
+      });
       const { ok, data } = yield call(getEnterpriseList, userId, pageIndex, pageSize);
+      yield put({
+        type: 'save',
+        payload: {
+          loading: false,
+        },
+      });
       if (!ok) {
         message.error('获取企业列表失败');
         return;
@@ -45,7 +68,6 @@ export default {
         payload: {
           listData: data.list,
           resultCount: data.resultCount,
-          loading: false,
         },
       });
     },
@@ -55,12 +77,10 @@ export default {
         payload: isPersonalSelect ? {
           isPersonalSelect,
           pageIndex1: pageIndex,
-          loading: true,
           listData: null,
         } : {
             isPersonalSelect,
             pageIndex2: pageIndex,
-            loading: true,
             listData: null,
           },
       });

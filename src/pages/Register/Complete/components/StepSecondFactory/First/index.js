@@ -49,6 +49,29 @@ class First extends Component {
     dispatch({
       type: 'registerComplete/getOcc',
     });
+    dispatch({
+      type: 'registerComplete/getAuthen',
+    });
+  }
+
+  componentDidMount() {
+    const { data } = this.props;
+    this.props.form.setFieldsValue({ enterpriseName: data.enterpriseName });
+    this.props.form.setFieldsValue({ shopName: data.shopName })
+    this.props.form.setFieldsValue({ industryId: data.industryId })
+    this.props.form.setFieldsValue({ industryName: data.industryName })
+    this.props.form.setFieldsValue({ province: data.province })
+    this.props.form.setFieldsValue({ city: data.city })
+    this.props.form.setFieldsValue({ companyLogo: data.companyLogo })
+    this.props.form.setFieldsValue({ licenseNumber: data.licenseNumber })
+    this.props.form.setFieldsValue({ licensePicture: data.licensePicture })
+    this.props.form.setFieldsValue({ companyProfile: data.companyProfile })
+    this.setState({
+      logoImages: [{ server: data.companyLogo }],
+    })
+    this.setState({
+      images: [{ server: data.licensePicture }],
+    })
   }
 
   enterpriseNameCheck = (rule, value, callback) => {
@@ -293,22 +316,22 @@ class First extends Component {
                 ],
               })(
                 <ImageView
-                    images={this.state.logoImages}
-                    total={1}
-                    onChange={this.onChangeLogoImage}
-                    type="custom"
-                  >
-                    <div>
-                      <div className={styles.images}>
-                        {
-                          this.state.logoImages && this.state.logoImages.length > 0 ?
-                          <img className={styles.image} src={ this.state.logoImages[0].server} alt="" /> :
+                  images={this.state.logoImages}
+                  total={1}
+                  onChange={this.onChangeLogoImage}
+                  type="custom"
+                >
+                  <div>
+                    <div className={styles.images}>
+                      {
+                        this.state.logoImages && this.state.logoImages.length > 0 ?
+                          <img className={styles.image} src={this.state.logoImages[0].server} alt="" /> :
                           (<><img src={camera} alt="" />
-                          <span>企业logo</span></>)
-                        }
-                      </div>
+                            <span>企业logo</span></>)
+                      }
                     </div>
-                  </ImageView>,
+                  </div>
+                </ImageView>,
               )
             }
           </FormItem>
@@ -338,21 +361,21 @@ class First extends Component {
                 ],
               })(
                 <ImageView
-                    images={this.state.images}
-                    total={1}
-                    onChange={this.onChangeImage}
-                    type="custom"
-                  >
-                    <div>
-                      <div className={styles.images}>
-                        {
-                          this.state.images && this.state.images.length > 0 ? <img className={styles.image} src={this.state.images[0].server} alt="" /> :
+                  images={this.state.images}
+                  total={1}
+                  onChange={this.onChangeImage}
+                  type="custom"
+                >
+                  <div>
+                    <div className={styles.images}>
+                      {
+                        this.state.images && this.state.images.length > 0 ? <img className={styles.image} src={this.state.images[0].server} alt="" /> :
                           (<><img src={camera} alt="" /><span>营业执照</span></>)
-                        }
-                      </div>
+                      }
                     </div>
-                  </ImageView>,
-                )
+                  </div>
+                </ImageView>,
+              )
             }
           </FormItem>
           <FormItem {...formItemLayout} label="企业简介">

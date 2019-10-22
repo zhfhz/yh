@@ -8,8 +8,8 @@ import { isDev, jsonParse } from './utils';
  */
 
 const prodBaseUrl = BASE_URL;
-// const devBaseUrl = 'http://localhost:8000'; // http://192.168.0.51:3000/mock/53
-const devBaseUrl = 'http://yapi.emake.cn/mock/53';
+const devBaseUrl = 'http://127.0.0.1:3000';
+// const devBaseUrl = 'http://yapi.emake.cn/mock/53';
 const baseUrl = isDev ? devBaseUrl : prodBaseUrl;
 const codeMessage = {
   200: '服务器成功返回请求的数据。',

@@ -80,3 +80,7 @@ export function completeFactoryFirst(params) {
 export function completeFactorySecond(params) {
   return request.post('/mms/enterprise/proveCool/1.2', { data: params });
 }
+
+export function getAuthen() {
+  return request('/mms/enterprise/authen/1.2');
+}

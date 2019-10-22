@@ -65,8 +65,11 @@ class Page extends Component {
   };
 
   renderAddonSection = () => (
-    <Button type="primary" onClick={() => this.props.history.push('/center/brandcenter/freight/add')}>
-      <Icon type="plus" /> 新增
+    <Button
+      style={{ width: '90px', height: '32px', backgroundColor: '#FA7114', color: 'white' }}
+      onClick={() => this.props.history.push('/center/brandcenter/freight/add')}
+    >
+      新增
     </Button>
   );
 

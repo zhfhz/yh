@@ -4,6 +4,8 @@ import { connect } from 'dva';
 
 import styles from './style.less';
 import Work from '../../Components/Work';
+import Empty from '../../Components/Empty';
+import PageLoading from '@/components/PageLoading';
 
 @connect(({ designerCenterWorks, designerCenter }) => ({ ...designerCenterWorks, userId: designerCenter.userId }))
 class Page extends Component {
@@ -26,58 +28,64 @@ class Page extends Component {
   }
 
   renderWorks = () => {
-    const { listData, dispatch, userId, pageIndex, pageSize } = this.props;
+    const { listData, dispatch, userId, pageIndex, pageSize, loading } = this.props;
     return (
       <div className={styles.worksList}>
         {
-          listData && listData.map(
-            v => (
-              <Work
-                key={v.worksId}
-                pic={v.coverImage}
-                name={v.worksName}
-                tag={v.categoryName}
-                viewCount={v.pv}
-                likeCount={v.fabulousNo}
-                favCount={v.collectionNo}
-                date={v.releaseTime}
-                isProtected={v.copyrightProtection}
-                verifyState={userId ? null : v.auditStatus}
-                rejectReason={v.rejectReason}
-                onClickEdit={() => {
-                  dispatch({
-                    type: 'designerCenter/jumpTo',
-                    path: '/center/designercenter/uploadwork',
-                    userId: v.worksId,
-                  });
-                }}
-                onClickDel={() => {
-                  Modal.confirm({
-                    title: '警告',
-                    content: '确认删除此作品？',
-                    okText: '确定',
-                    cancelText: '取消',
-                    onOk: () => {
-                      dispatch({
-                        type: 'designerCenterWorks/delWork',
-                        worksId: v.worksId,
-                        userId,
-                        pageIndex,
-                        pageSize,
-                      });
-                    },
-                  });
-                }}
-                showUserOption={!userId}
-              />
-            ))
+          loading ? <PageLoading /> :
+            listData && listData.map(
+              v => (
+                <Work
+                  key={v.worksId}
+                  pic={v.coverImage}
+                  name={v.worksName}
+                  tag={v.categoryName}
+                  viewCount={v.pv}
+                  likeCount={v.fabulousNo}
+                  favCount={v.collectionNo}
+                  date={v.releaseTime}
+                  isProtected={v.copyrightProtection}
+                  verifyState={userId ? null : v.auditStatus}
+                  rejectReason={v.rejectReason}
+                  onClickEdit={() => {
+                    dispatch({
+                      type: 'designerCenter/jumpTo',
+                      path: '/center/designercenter/uploadwork',
+                      userId: v.worksId,
+                    });
+                  }}
+                  onClickDel={() => {
+                    Modal.confirm({
+                      title: '警告',
+                      content: '确认删除此作品？',
+                      okText: '确定',
+                      cancelText: '取消',
+                      onOk: () => {
+                        dispatch({
+                          type: 'designerCenterWorks/delWork',
+                          worksId: v.worksId,
+                          userId,
+                          pageIndex,
+                          pageSize,
+                        });
+                      },
+                    });
+                  }}
+                  showUserOption={!userId}
+                />
+              ))
         }
       </div>
     )
   }
 
   render() {
-    const { resultCount, pageIndex } = this.props;
+    const { listData, resultCount, pageIndex, loading } = this.props;
+
+    if ((!listData || listData.length === 0) && !loading) {
+      return <Empty />
+    }
+
     return (
       <div className={styles.container} >
         {this.renderWorks()}

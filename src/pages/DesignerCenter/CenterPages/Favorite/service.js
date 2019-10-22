@@ -18,12 +18,12 @@ export function getWorksList(userId, pageSize, pageIndex) {
   });
 }
 
-// /dms/works/worksInfo/{version}
-export function delWorks(worksId) {
-  return request('/dms/works/worksInfo/1.2', {
-    method: 'DELETE',
+export function cancelFavWorks(worksId) {
+  return request('/mms/works/collect/1.2', {
+    method: 'POST',
     params: {
       worksId,
+      collectionStatus: 1, // 1 取消收藏
     },
   });
 }

@@ -25,10 +25,6 @@ export default extendBaseModel({
         },
       });
     },
-    *fetchBannerData () {
-        yield null;
-        throw new Error('fetchBannerData 还没有实现');
-    },
     *fetchSortOptions () {
         yield null;
         throw new Error('fetchSortOptions 还没有实现');

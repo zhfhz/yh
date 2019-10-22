@@ -45,11 +45,24 @@ export const FollowTabType = {
   get Follow() { return 2; },
 }
 
-export const formItemLayout = {
-  labelCol: {
-    span: 0,
-  },
-  wrapperCol: {
-    span: 0,
-  },
-};
+export const SexType = {
+  get MALE() { return 1; },
+  get FEMALE() { return 2; },
+  get SECRET() { return 3; },
+}
+
+// 短信类型 1.登录 2.注册 3.找回密码 4.修改密码 5.修改绑定手机 6.后台重置密码
+export const SMSType = {
+  get LOGIN() { return 1; },
+  get REGISTER() { return 2; },
+  get PWD_FORGET() { return 3; },
+  get PWD_MODIFY() { return 4; },
+  get MOBILE() { return 5; },
+  get MANAGE_PWD_RESET() { return 6; },
+}
+
+// 1 草稿   2  已发布
+export const WorksStatus = {
+  get DRAFT() { return 1; },
+  get PUBLISH() { return 2; },
+}

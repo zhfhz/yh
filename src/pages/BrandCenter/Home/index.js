@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import Breadcrumb from '@/components/Breadcrumb';
 import ReactEcharts from 'echarts-for-react';
 import uuid from 'uuid/v1';
+import Breadcrumb from '@/components/Breadcrumb';
 import { ChartsType } from './commons';
 
 

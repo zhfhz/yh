@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import { routerRedux } from 'dva/router';
-import { getDic, completeUser, SecondType, completeFactoryFirst, completeFactorySecond } from './service';
+import { getDic, completeUser, SecondType, completeFactoryFirst, completeFactorySecond, getAuthen } from './service';
 
 
 export default {
@@ -11,6 +11,7 @@ export default {
     provinces: [],
     cities: [],
     list: [],
+    data: null,
   },
 
   effects: {
@@ -97,6 +98,17 @@ export default {
       }
       message.success('编辑成功！');
       yield put(routerRedux.push('/register/success'));
+    },
+    *getAuthen(_, { call, put }) {
+      const { ok, msg, data } = yield call(getAuthen);
+      if (!ok) {
+        message.error(msg);
+        return;
+      }
+      yield put({
+        type: 'save',
+        payload: { data },
+      });
     },
   },
 

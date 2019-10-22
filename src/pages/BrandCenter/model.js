@@ -10,7 +10,7 @@ export default {
       enterpriseName: '', // 工厂名称
       platformName: '', // 入驻智造谷名称
       companySlogan: '', // 企业slogan信息
-      enterpriseLabel: '', // 企业标签
+      labelList: [], // 企业标签
     },
     amountInfo: {
       salesAmount: null, // 商品销售总额

@@ -1,4 +1,5 @@
 import { getDesignerList, getCatelogs } from './service';
+import { BANNER_CONFIG, getBannerData } from '@/services/global';
 import extendBaseModel from '@/pages/BaseCatelogPage/model';
 
 export default extendBaseModel({

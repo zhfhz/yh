@@ -28,7 +28,6 @@ class Second extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // showoccupation: false,
       frontImages: [],
       backImages: [],
       waitGetCode: true,
@@ -43,9 +42,27 @@ class Second extends Component {
     dispatch({
       type: 'registerComplete/getCity',
     });
-    // dispatch({
-    //   type: 'registerComplete/getOcc',
-    // });
+    dispatch({
+      type: 'registerComplete/getAuthen',
+    });
+  }
+
+  componentDidMount() {
+    const { data } = this.props;
+    this.props.form.setFieldsValue({ legalName: data.legalName });
+    this.props.form.setFieldsValue({ legalPhone: data.legalPhone });
+    this.props.form.setFieldsValue({ legalIdentityCard: data.legalIdentityCard });
+    this.props.form.setFieldsValue({ idFrontPhoto: data.idFrontPhoto });
+    this.props.form.setFieldsValue({ idBackPhoto: data.idBackPhoto });
+    this.props.form.setFieldsValue({ contactName: data.contactName });
+    this.props.form.setFieldsValue({ contactDuties: data.contactDuties });
+    this.props.form.setFieldsValue({ contactPhone: data.contactPhone });
+    this.setState({
+      frontImages: [{ server: data.idFrontPhoto }],
+    })
+    this.setState({
+      backImages: [{ server: data.idBackPhoto }],
+    })
   }
 
   legalNameCheck = (rule, value, callback) => {
@@ -83,15 +100,6 @@ class Second extends Component {
       }
     });
   }
-
-  // occupationChange = value => {
-  //   const occupationId = value;
-  //   if (occupationId === -1) {
-  //     this.setState({ showoccupation: true })
-  //   } else {
-  //     this.setState({ showoccupation: false })
-  //   }
-  // }
 
   next = e => {
     e.preventDefault();

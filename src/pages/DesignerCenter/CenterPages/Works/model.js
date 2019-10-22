@@ -10,6 +10,12 @@ export default {
 
   effects: {
     *fetch({ userId, pageSize, pageIndex }, { call, put }) {
+      yield put({
+        type: 'save',
+        payload: {
+          loading: true,
+        },
+      });
       const { ok, data } = yield call(getWorksList, userId, pageSize, pageIndex);
       if (!ok || !data) {
         message.error('作品列表获取失败');
@@ -21,6 +27,7 @@ export default {
           listData: data.list,
           resultCount: parseInt(data.resultCount, 10) || 0,
           pageIndex,
+          loading: false,
         },
       });
     },

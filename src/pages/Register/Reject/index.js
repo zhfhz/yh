@@ -5,8 +5,6 @@ import { Link } from 'dva/router';
 import { STEPS } from '../service';
 
 import styles from './style.less';
-import ImageView from '@/components/ImageView';
-
 
 const { Step } = Steps;
 

@@ -1,3 +1,127 @@
 .container {
   padding: 8px;
+  background-color: white;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 42px;
+    margin-right: 42px;
+    height: 60px;
+    // background-color: red;
+
+    .title {
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFangSC;
+      font-weight: 400;
+      color: #3d3d3d;
+      line-height: 20px;
+    }
+
+    .state {
+      font-size: 16px;
+      font-family: PingFangSC-Regular, PingFangSC;
+      font-weight: 400;
+      color: #ff3904;
+      line-height: 22px;
+      margin-left: 5px;
+    }
+
+    .tips {
+      width: 509px;
+      height: 40px;
+      background: #e6f7ff;
+      border-radius: 4px;
+      border: 1px solid #91d5ff;
+      margin-right: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        margin-left: 16px;
+      }
+
+      .description {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFangSC;
+        font-weight: 400;
+        color: #000000;
+        line-height: 20px;
+        margin-left: 10px;
+      }
+
+      .close {
+        cursor: pointer;
+        .image {
+          margin-right: 17px;
+          width: 9px;
+          height: 9px;
+        }
+      }
+    }
+  }
+
+  .images {
+    width: 76px;
+    height: 76px;
+    background: rgba(237, 237, 237, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .next {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+
+  .card-images {
+    width: 280px;
+    height: 200px;
+    background: #f7f9fe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3d3d3d;
+    margin-right: 20px;
+  }
+
+  .card-image {
+    width: 233px;
+    height: 140px;
+    border-radius: 4px;
+  }
+
+  .code-button {
+    background-color: #7ac23d;
+    border: 1px solid #7ac23d;
+    width: 100%;
+    color: #fff;
+  }
+
+  .button {
+    text-align: center;
+    padding-bottom: 50px;
+
+    .confirm {
+      background-color: #597ef7;
+      color: #ffffff;
+      width: 134px;
+      height: 40px;
+      border-radius: 4px;
+    }
+  }
 }

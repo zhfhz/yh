@@ -16,6 +16,7 @@ const UserInfo = ({
     enterpriseId,
     enterpriseName,
     companyProfile,
+    companySlogan,
     companyLogo,
     labelList = [],
     industryName,
@@ -32,12 +33,12 @@ const UserInfo = ({
                     {enterpriseName}
                 </div>
                 <div className={styles.addr}>
-                    已入住淮安市都市智造谷
+                    已入住都市智造谷
                 </div>
                 <article className={`${styles.note} GMLL-2`}>
                     {companyProfile}
                 </article>
-                <Tags className={styles.tags} data={['千年老店']} theme="blue" style={{ fontSize: 12 }} />
+                <Tags className={styles.tags} data={labelList} theme="blue" style={{ fontSize: 12 }} />
             </section>
             <button className={styles.followBtn} type="button">
                 关注

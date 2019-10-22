@@ -17,10 +17,10 @@ class Page extends Component {
       type: `${namespace}/fetchCatelogData`,
       payload: {},
     });
-    // dispatch({
-    //   type: `${namespace}/fetchBannerData`,
-    //   payload: {},
-    // });
+    dispatch({
+      type: `${namespace}/fetchBannerData`,
+      payload: {},
+    });
   }
 
   /**

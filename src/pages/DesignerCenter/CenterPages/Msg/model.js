@@ -11,6 +11,12 @@ export default {
 
   effects: {
     *fetch({ pageIndex, pageSize }, { call, put }) {
+      yield put({
+        type: 'save',
+        payload: {
+          loading: true,
+        },
+      });
       const { ok, data } = yield call(getData, pageIndex, pageSize);
       if (!ok) {
         message.error('动态获取失败');
@@ -31,6 +37,7 @@ export default {
           pageIndex,
           resultCount: parseInt(data.resultCount, 10) || 0,
           dataList: data.list,
+          loading: false,
         },
       });
     },
