@@ -1,9 +1,10 @@
 import { getText } from './service';
+import { BANNER_CONFIG, getBannerData } from '@/services/global';
 
 export default {
   namespace: 'home',
   state: {
-    text: 'loading...',
+    bannerData: [],
   },
 
   effects: {
@@ -16,6 +17,15 @@ export default {
         },
       });
     },
+    *fetchBannerData (_, { put }) {
+      const { data } = yield getBannerData(BANNER_CONFIG.home);
+      yield put({
+        type: 'save',
+        payload: {
+            bannerData: data,
+        },
+      });
+  },
   },
 
   reducers: {

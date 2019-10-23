@@ -48,14 +48,14 @@ function BaseCreate () {
               throw new Error('fetchCatelogData 还没有实现');
           },
           *fetchBannerData (_, { put }) {
-              const { data: { list } } = yield getBannerData(BANNER_CONFIG[Base.namespace]);
+              const { data } = yield getBannerData(BANNER_CONFIG[Base.namespace]);
               yield put({
                 type: 'save',
                 payload: {
-                  bannerData: list.map(item => ({ text: item.dataName, value: item.dataId })),
+                    bannerData: data,
                 },
-              });
-            },
+                });
+          },
           *fetchSortOptions () {
               yield null;
               throw new Error('fetchSortOptions 还没有实现');
